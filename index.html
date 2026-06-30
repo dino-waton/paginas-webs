@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feliz Cumpleaños</title>
+  <style>
+    *
+    {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body
+    {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f, #7b1f3f);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1
+    {
+      font-size: 3em;
+      color: #ffd1dc;
+    }
+
+    .message-box
+    {
+      width: min(700px, 80%);
+      min-height: 140px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 16px;
+      padding: 20px;
+      color: black;
+      box-shadow: 0 0 20px rgba(255, 255, 255, .25);
+    }
+
+    /* Gato anaranjado */
+    .cat
+    {
+      position: absolute;
+      left: 30px;
+      bottom: 25px;
+      width: 90px;
+      animation: floatCat 3s ease-in-out infinite;
+    }
+
+    .head
+    {
+      position: relative;
+      width: 90px;
+      height: 80px;
+      background: #FFA500;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
+    }
+
+    .ear
+    {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #FFA500;
+      transform: rotate(45deg);
+      top: -8px;
+    }
+
+    .ear.left
+    {
+      left: 10px;
+    }
+
+    .ear.right
+    {
+      right: 10px;
+    }
+
+    .ear:after
+    {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: pink;
+      left: 6px;
+      top: 6px;
+    }
+
+    .eye
+    {
+      position: absolute;
+      top: 28px;
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: blink 5s infinite;
+    }
+
+    .eye.left
+    {
+      left: 22px;
+    }
+
+    .eye.right
+    {
+      right: 22px;
+    }
+
+    .eye:after
+    {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #000;
+      border-radius: 50%;
+      left: 4px;
+      top: 4px;
+    }
+
+    .nose
+    {
+      position: absolute;
+      left: 40px;
+      top: 45px;
+      width: 10px;
+      height: 8px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .mouth
+    {
+      position: absolute;
+      left: 36px;
+      top: 54px;
+      width: 18px;
+      height: 10px;
+      border-bottom: 2px solid #fff;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* Whiskers */
+    .wh
+    {
+      position: absolute;
+      width: 28px;
+      height: 2px;
+      background: #fff;
+    }
+
+    .w1 { left: -18px; top: 47px; transform: rotate(10deg); }
+    .w2 { left: -18px; top: 55px; }
+    .w3 { right: -18px; top: 47px; transform: rotate(-10deg); }
+    .w4 { right: -18px; top: 55px; }
+
+    /* Paws */
+    .paw
+    {
+      position: absolute;
+      bottom: -12px;
+      width: 16px;
+      height: 20px;
+      background: #FFA500;
+      border-radius: 20px;
+    }
+
+    .paw.left { left: 18px; }
+    .paw.right { right: 18px; }
+
+    /* Cola */
+    .tail
+    {
+      position: absolute;
+      right: -28px;
+      bottom: 18px;
+      width: 45px;
+      height: 10px;
+      background: #FFA500;
+      border-radius: 20px;
+      transform-origin: left;
+      animation: tail .5s infinite alternate;
+    }
+
+    /* Cloud */
+    .cloud
+    {
+      position: absolute;
+      left: 70px;
+      bottom: 140px;
+      background: #fff;
+      color: #7b1f3f;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, .35);
+      animation: floatCloud 2.5s ease-in-out infinite;
+    }
+
+    .cloud:after
+    {
+      content: "";
+      position: absolute;
+      left: 18px;
+      bottom: -6px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      transform: rotate(45deg);
+    }
+
+    /* ANIMACION DEL GATO */
+    @keyframes blink
+    {
+      0%, 96%, 100% { height: 14px; }
+      98% { height: 2px; }
+    }
+
+    @keyframes tail
+    {
+      from { transform: rotate(20deg); }
+      to { transform: rotate(-20deg); }
+    }
+
+    @keyframes floatCat
+    {
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes floatCloud
+    {
+      50% { transform: translateY(6px); }
+    }
+
+    /* Auto Modificacion de tamaño */
+    @media (max-width: 1024px) 
+    {
+      h1 { font-size: 2.5em; }
+      h2 { font-size: 1.2em; }
+
+    .message-box { padding: 16px; }
+    .cat { width: 75px; left: 20px; }
+    .cloud { bottom: 120px; font-size: 0.9em; }
+    }
+
+    @media (max-width: 600px) 
+    {
+      h1 { font-size: 2em; }
+      h2 { font-size: 1em; margin: 10px 0 20px; }
+
+    .message-box { width: 90%; min-height: 100px; }
+    .cat { width: 60px; left: 10px; bottom: 15px; }
+    .cloud { bottom: 90px; padding: 8px 14px; font-size: 0.8em; }
+    }
+
+  </style>
+</head>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<body>
+  <h1> ¡Feliz Cumpleaños Miley! </h1>
+  <h2>Esperemos la estes pasando a toda madre esto es un regalo del dino waton</h2>
+  <div class="message-box">
+    Hey que tal, feliz cumpleaños ten un bonito dia aunque hoy trabajes disfruta el momento, tomar la desicion de estudiar y trabajar es duro, pero este gatito anaranjado confia en ti en que podras lograr tus objetivos. y aunque la vida te pida que te rindas llega la esperanza a que te levantes y sigas adelante ATT. Gato anaranjado (psdt: dino se demoro 2 dias dandole vida al gato)
+  </div>
+
+  <div class="cloud">¿Vino?, ¿Quien vino?</div>
+
+<div class="cat">
+    <div class="head">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="nose"></div>
+        <div class="mouth"></div>
+
+        <div class="wh w1"></div>
+        <div class="wh w2"></div>
+        <div class="wh w3"></div>
+        <div class="wh w4"></div>
+    </div>
+
+    <div class="paw left"></div>
+    <div class="paw right"></div>
+
+    <div class="tail"></div>
+</div>
+
+</body>
+</html>
